@@ -3,7 +3,7 @@
 // Requires an OPENROUTER_API_KEY environment variable set in the Vercel project
 // (Project -> Settings -> Environment Variables). Never hardcode the key here.
 
-const MODEL = "meta-llama/llama-3.1-8b-instruct:free";
+const MODEL = "openai/gpt-oss-20b:free";
 const MAX_QUESTION_LENGTH = 300;
 const MAX_TOKENS = 300;
 
