@@ -1,78 +1,33 @@
-# Aly Maklad Portfolio
+# Hi, I'm Aly Maklad
 
-An interactive AI-style portfolio for Aly Maklad. The site includes a static single-page frontend and a Vercel serverless API route that answers visitor questions using OpenRouter's OpenAI-compatible chat completions API.
+I'm a Computer Science graduate specializing in Artificial Intelligence, with a dual degree from Ain Shams University and the University of East London.
 
-## Features
+I work across AI/ML, computer vision, LLMs, RAG systems, and full-stack development. My recent work focuses on multimodal deep learning, LLM fine-tuning, and agentic AI systems built with tools like LangGraph and LangChain.
 
-- Minimal responsive portfolio landing page
-- Quick-answer cards for profile, projects, skills, contact, location, and resume
-- Free-text question box with fallback AI answers grounded in Aly's resume/context
-- Downloadable resume PDF
-- Serverless `/api/ask` endpoint for Vercel deployments
+## Portfolio
 
-## Project Structure
+Visit my portfolio here:
 
-```text
-.
-├── api/
-│   └── ask.js                 # Vercel serverless function
-├── Aly_Maklad_CV.pdf          # Resume PDF
-├── avatar-transparent.png     # Portfolio avatar image
-├── index.html                 # Main portfolio page
-└── README.md
-```
+[portfolio-q9h0vv4ne-alymaklads-projects.vercel.app](https://portfolio-q9h0vv4ne-alymaklads-projects.vercel.app/)
 
-## Local Development
+## What I Work On
 
-This is mostly a static site, so you can open `index.html` directly in a browser for the frontend.
+- AI and machine learning systems
+- LLM-powered agents and RAG applications
+- Computer vision and deep learning
+- Full-stack applications with FastAPI, Flutter, NestJS, and SQL
+- Research-focused model development and experimentation
 
-To test the serverless API locally, use Vercel:
+## Highlights
 
-```bash
-npm install -g vercel
-vercel dev
-```
+- AI Research Intern at Manipal Institute of Technology
+- Built multimodal radiology report generation pipelines using ResNet50, MoCo, CLIP, Phi-3, and QLoRA
+- Built autonomous multi-agent workflows for job search, CV tailoring, reporting, and automation
+- Developed real-time computer vision systems for healthcare and drone-tracking use cases
 
-Then visit:
+## Contact
 
-```text
-http://localhost:3000
-```
-
-## Environment Variables
-
-The AI fallback route requires:
-
-```text
-OPENROUTER_API_KEY=your_openrouter_api_key
-```
-
-Set this in your Vercel project under:
-
-```text
-Project Settings -> Environment Variables
-```
-
-The frontend still works without the API key, but free-text AI fallback answers will show a friendly fallback message.
-
-## Deployment
-
-Deploy with Vercel:
-
-```bash
-vercel
-vercel --prod
-```
-
-The API route is available at:
-
-```text
-/api/ask
-```
-
-## Tech
-
-- HTML, CSS, and vanilla JavaScript
-- Vercel Serverless Functions
-- OpenRouter chat completions API
+- Email: [alytarek.maklad@gmail.com](mailto:alytarek.maklad@gmail.com)
+- LinkedIn: [linkedin.com/in/alymaklad](https://www.linkedin.com/in/alymaklad/)
+- GitHub: [github.com/alymaklad](https://github.com/alymaklad)
 
