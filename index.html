@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aly Maklad — AI/ML Engineer & Full-Stack Developer</title>
+<meta name="description" content="Ask-anything AI portfolio for Aly Maklad — AI/ML engineer and full-stack developer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111114;
+    --muted:#6b7280;
+    --faint:#9ca3af;
+    --border:#e7e7ea;
+    --card:#ffffff;
+    --card-hover:#fafafa;
+    --bg:#ffffff;
+    --pill:#f2f2f4;
+    --pill-ink:#111114;
+    --radius:18px;
+    --maxw:620px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit;}
+  .info-btn{
+    position:fixed; top:22px; right:22px; width:30px; height:30px; border-radius:50%;
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+    font-size:0.8rem; color:var(--faint); cursor:pointer; background:var(--card); z-index:20;
+  }
+  .info-tip{
+    position:fixed; top:60px; right:22px; max-width:240px; background:var(--ink); color:#fff;
+    font-size:0.78rem; line-height:1.45; padding:12px 14px; border-radius:10px; z-index:21;
+    opacity:0; transform:translateY(-6px); pointer-events:none; transition:opacity .18s ease, transform .18s ease;
+  }
+  .info-tip.show{opacity:1; transform:translateY(0);}
+
+  main.wrap{max-width:var(--maxw); margin:0 auto; padding:88px 20px 60px; display:flex; flex-direction:column; align-items:center;}
+
+  .hero{width:100%; text-align:center;}
+  .greet{color:var(--muted); font-size:1.02rem; font-weight:500; margin:0 0 6px;}
+  .wave{display:inline-block; animation:wave 2.4s infinite;}
+  @keyframes wave{0%,60%,100%{transform:rotate(0);} 10%{transform:rotate(14deg);} 20%{transform:rotate(-8deg);} 30%{transform:rotate(14deg);} 40%{transform:rotate(-4deg);}}
+  h1{font-size:clamp(1.7rem, 5vw, 2.6rem); font-weight:800; letter-spacing:-0.02em; margin:0 0 34px; line-height:1.12;}
+
+  .avatar{width:150px; height:150px; margin:0 auto 30px; border-radius:50%; overflow:hidden;}
+  .avatar svg{width:100%; height:100%;}
+  .avatar img{transform:scale(1.35); transform-origin:50% 38%;}
+
+  .composer{width:100%; will-change:transform;}
+  .composer.composer-below{margin-top:40px;}
+
+  .ask-bar{
+    display:flex; align-items:center; gap:8px;
+    border:1px solid var(--border); border-radius:999px; padding:6px 6px 6px 22px;
+    background:var(--card); margin-bottom:26px; transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .ask-bar:focus-within{border-color:#c7c9d1; box-shadow:0 0 0 4px rgba(17,17,20,0.05);}
+  .ask-bar input{
+    flex:1; border:none; outline:none; font-family:inherit; font-size:0.98rem; background:transparent; color:var(--ink); padding:10px 0;
+  }
+  .ask-bar input::placeholder{color:var(--faint);}
+  .send-btn{
+    width:38px; height:38px; border-radius:50%; border:none; background:var(--ink); color:#fff;
+    display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .send-btn:hover{transform:scale(1.06); background:#000;}
+  .send-btn:active{transform:scale(0.94);}
+  .send-btn svg{width:16px; height:16px;}
+
+  .cards{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; width:100%;
+  }
+  .card{
+    grid-column:span 1;
+    border:1px solid var(--border); border-radius:16px; background:var(--card);
+    padding:20px 10px 16px; display:flex; flex-direction:column; align-items:center; gap:10px;
+    cursor:pointer; font-family:inherit; font-size:0.86rem; font-weight:500; color:var(--ink);
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .card:hover{background:var(--card-hover); transform:translateY(-2px); border-color:#d7d8dd;}
+  .card svg{width:20px; height:20px; stroke:var(--ink);}
+  .card.wide{grid-column:span 1;}
+  @media (max-width:480px){
+    .cards{grid-template-columns:repeat(3, 1fr);}
+  }
+
+  /* CONVERSATION */
+  .conversation{width:100%; margin-top:44px; display:flex; flex-direction:column; gap:26px;}
+  .conversation.hidden{display:none;}
+  .msg-user{display:flex; justify-content:center;}
+  .msg-user .bubble{
+    background:var(--pill); color:var(--pill-ink); font-size:0.95rem; font-weight:500;
+    padding:12px 20px; border-radius:999px; max-width:90%; text-align:center;
+  }
+  .msg-ai{display:flex; gap:12px; align-items:flex-start;}
+  .msg-ai .mini-avatar{width:30px; height:30px; flex-shrink:0; margin-top:2px; border-radius:50%; overflow:hidden;}
+  .msg-ai .mini-avatar svg{width:100%; height:100%;}
+  .msg-ai .mini-avatar img{transform:scale(1.35); transform-origin:50% 38%;}
+  .msg-ai .content{font-size:0.96rem; line-height:1.65; color:#26262b;}
+  .msg-ai .content p{margin:0 0 10px;}
+  .msg-ai .content ul{margin:0 0 10px; padding-left:20px;}
+  .msg-ai .content li{margin-bottom:6px;}
+  .msg-ai .content a.dl{
+    display:inline-flex; align-items:center; gap:6px; margin-top:4px;
+    background:var(--ink); color:#fff; font-weight:600; font-size:0.86rem;
+    padding:9px 16px; border-radius:999px;
+  }
+  .typing{display:flex; gap:4px; padding:6px 0;}
+  .typing span{width:6px; height:6px; border-radius:50%; background:var(--faint); animation:blink 1.2s infinite;}
+  .typing span:nth-child(2){animation-delay:.2s;}
+  .typing span:nth-child(3){animation-delay:.4s;}
+  @keyframes blink{0%,80%,100%{opacity:.25;} 40%{opacity:1;}}
+
+  footer{text-align:center; padding:20px; color:var(--faint); font-size:0.78rem; position:relative; z-index:1;}
+
+  /* CURSOR SPOTLIGHT — reveals a hidden iridescent gradient around the pointer */
+  .glow-field{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,173,193,0.6), transparent 40%),
+      radial-gradient(circle at 82% 12%, rgba(163,210,255,0.6), transparent 42%),
+      radial-gradient(circle at 78% 82%, rgba(255,206,128,0.55), transparent 42%),
+      radial-gradient(circle at 18% 86%, rgba(173,255,206,0.55), transparent 42%),
+      radial-gradient(circle at 50% 50%, rgba(206,178,255,0.55), transparent 46%);
+    filter:blur(46px) saturate(1.45);
+    -webkit-mask-image:radial-gradient(circle 260px at var(--mx,50%) var(--my,50%), #000 0%, rgba(0,0,0,.55) 40%, transparent 76%);
+    mask-image:radial-gradient(circle 260px at var(--mx,50%) var(--my,50%), #000 0%, rgba(0,0,0,.55) 40%, transparent 76%);
+    opacity:0; transition:opacity .35s ease;
+  }
+  .glow-field.active{opacity:1;}
+  main.wrap, header, footer, .info-btn, .info-tip{position:relative; z-index:1;}
+</style>
+</head>
+<body>
+
+<div class="glow-field" id="glow-field"></div>
+<div class="info-btn" id="info-btn">i</div>
+<div class="info-tip" id="info-tip">This is an interactive AI-style portfolio. Ask a question or tap a card below — answers are drawn straight from my résumé.</div>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="greet">Hey, I'm Aly <span class="wave">👋</span></p>
+    <h1>AI/ML Engineer &amp; Full-Stack Developer</h1>
+
+    <div class="avatar">
+      <img src="avatar-transparent.png" alt="Aly Maklad" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+    </div>
+
+    <div class="composer" id="composer">
+      <form class="ask-bar" id="ask-form">
+        <input id="ask-input" type="text" placeholder="Ask me anything…" autocomplete="off">
+        <button class="send-btn" type="submit" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+
+      <div class="cards" id="cards">
+        <button class="card" data-q="Tell me about yourself.">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8.5 15c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8" stroke-linecap="round"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>
+          Me
+        </button>
+        <button class="card" data-q="What projects have you built?">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          Projects
+        </button>
+        <button class="card" data-q="What are your technical skills?">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Skills
+        </button>
+        <button class="card" data-q="How can I contact you?">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Contact
+        </button>
+        <button class="card" data-q="Where are you located?">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-7.4 7-12.5A7 7 0 0 0 5 9.5C5 14.6 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+          Location
+        </button>
+        <button class="card" data-q="Can I see your resume?">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg>
+          Resume
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="conversation hidden" id="conversation"></section>
+</main>
+
+<footer>Ask-anything portfolio · answers pulled from my résumé</footer>
+
+<script>
+const answers = {
+  me: {
+    q: "Tell me about yourself.",
+    html: `<p>I'm <strong>Aly Maklad</strong>, a Computer Science graduate (dual degree from Ain Shams University &amp; the University of East London) specializing in Artificial Intelligence, based in Cairo, Egypt.</p>
+    <p>I currently work as an <strong>AI Research Intern at Manipal Institute of Technology</strong>, building a multimodal radiology report generation model (ResNet50 + MoCo + CLIP, with a Phi-3 model fine-tuned via 4-bit QLoRA). Alongside that I've been building <strong>LLM-powered multi-agent systems</strong> with LangGraph and LangChain, and I've done full-stack work with FastAPI, Flutter, and NestJS.</p>`
+  },
+  projects: {
+    q: "What projects have you built?",
+    html: `<p>A few highlights:</p>
+    <ul>
+      <li><strong>Job Application Agent</strong> — an autonomous job-application system built as a multi-agent LangGraph orchestrator coordinating 8 specialized agents (search, ATS scoring, CV rewriting, apply-decision, email, reporting, news digest, skill-gap analysis) that runs unattended on a daily/weekly scheduler — searching job boards, scoring fit with hybrid keyword + LLM judgment, auto-tailoring CVs for low-fit roles, and applying or drafting through a whitelist-gated apply agent, with automated email and Telegram reports.</li>
+      <li><strong>AI Course Material Chatbot (RAG)</strong> — FastAPI + Docker app answering questions grounded in uploaded course PDFs and slides.</li>
+      <li><strong>Shifaa</strong> — a hospital monitoring platform; I built the real-time fall detection system (YOLO, MobileNetV3, MediaPipe, CTR-GCN) at 91.6% accuracy.</li>
+      <li><strong>Drone tracking optimization</strong> — a pruned, TensorRT-optimized tracker hitting 100 FPS under strict parameter limits.</li>
+      <li><strong>Few-shot food recognition</strong> — Prototypical Networks + Swin Transformer, 76.3% accuracy in 5-way 10-shot evaluation.</li>
+    </ul>`
+  },
+  skills: {
+    q: "What are your technical skills?",
+    html: `<p><strong>AI/ML:</strong> PyTorch, TensorFlow, LangChain, LangGraph, RAG, QLoRA, LLM fine-tuning, computer vision, NLP, transformers.</p>
+    <p><strong>Engineering:</strong> Python, SQL, FastAPI, SQLAlchemy, Flutter, NestJS, Docker, REST APIs, Git.</p>
+    <p><strong>Foundations:</strong> linear algebra, probability &amp; statistics, classical ML algorithms.</p>`
+  },
+  contact: {
+    q: "How can I contact you?",
+    html: `<p>Best way is email — <a href="mailto:alytarek.maklad@gmail.com"><strong>alytarek.maklad@gmail.com</strong></a>. I'm also on <a href="https://www.linkedin.com/in/alymaklad/" target="_blank" rel="noopener"><strong>LinkedIn</strong></a> and <a href="https://github.com/alymaklad" target="_blank" rel="noopener"><strong>GitHub</strong></a>. Always happy to talk AI/ML roles or agentic-systems projects.</p>`
+  },
+  location: {
+    q: "Where are you located?",
+    html: `<p>I'm based in El Shorouk, Cairo, Egypt (GMT+2) — open to remote and hybrid AI/ML roles.</p>`
+  },
+  resume: {
+    q: "Can I see your resume?",
+    html: `<p>Sure — here it is. Quick highlights: dual CS degree specializing in AI, current AI Research Intern at Manipal Institute of Technology, and hands-on work fine-tuning LLMs and building multi-agent systems.</p>
+    <a class="dl" href="Aly_Maklad_CV.pdf">Download résumé (PDF)</a>`
+  }
+};
+
+function matchIntent(text){
+  const t = text.toLowerCase();
+  if (/resume|cv\b/.test(t)) return 'resume';
+  if (/project/.test(t)) return 'projects';
+  if (/skill|tech stack|technolog/.test(t)) return 'skills';
+  if (/contact|email|reach|linkedin|github/.test(t)) return 'contact';
+  if (/where|location|based|city|country/.test(t)) return 'location';
+  if (/who are you|about you|yourself|background|bio/.test(t)) return 'me';
+  return 'fallback';
+}
+
+const conv = document.getElementById('conversation');
+const form = document.getElementById('ask-form');
+const input = document.getElementById('ask-input');
+const composer = document.getElementById('composer');
+const wrapEl = document.querySelector('main.wrap');
+let composerMoved = false;
+
+function relocateComposer(){
+  if (composerMoved) return;
+  composerMoved = true;
+  const first = composer.getBoundingClientRect();
+  composer.classList.add('composer-below');
+  wrapEl.appendChild(composer); // moves it to after #conversation
+  const last = composer.getBoundingClientRect();
+  const deltaY = first.top - last.top;
+  composer.style.transition = 'none';
+  composer.style.transform = `translateY(${deltaY}px)`;
+  requestAnimationFrame(() => {
+    composer.style.transition = 'transform .55s cubic-bezier(.22,.8,.2,1)';
+    composer.style.transform = 'translateY(0)';
+  });
+  composer.addEventListener('transitionend', () => {
+    composer.style.transition = '';
+    composer.style.transform = '';
+  }, { once: true });
+}
+
+function scrollToBottom(){
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+function ask(rawText){
+  const text = rawText.trim();
+  if (!text) return;
+  conv.classList.remove('hidden');
+  relocateComposer();
+
+  const userMsg = document.createElement('div');
+  userMsg.className = 'msg-user';
+  userMsg.innerHTML = `<div class="bubble"></div>`;
+  userMsg.querySelector('.bubble').textContent = text;
+  conv.appendChild(userMsg);
+
+  const aiMsg = document.createElement('div');
+  aiMsg.className = 'msg-ai';
+  aiMsg.innerHTML = `
+    <div class="mini-avatar"><img src="avatar-transparent.png" alt="" style="width:100%; height:100%; object-fit:cover; border-radius:50%;"></div>
+    <div class="content"><div class="typing"><span></span><span></span><span></span></div></div>
+  `;
+  conv.appendChild(aiMsg);
+  scrollToBottom();
+
+  const intent = matchIntent(text);
+
+  if (intent !== 'fallback') {
+    const data = answers[intent];
+    setTimeout(() => {
+      aiMsg.querySelector('.content').innerHTML = data.html;
+      scrollToBottom();
+    }, 650 + Math.random() * 400);
+  } else {
+    // No canned intent matched — ask the small LLM, grounded in the about-me doc.
+    fetch('/api/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: text })
+    })
+      .then(r => r.json())
+      .then(data => {
+        const p = document.createElement('p');
+        p.textContent = data.answer || "I couldn't come up with a good answer to that — try asking something else, or reach out directly.";
+        const content = aiMsg.querySelector('.content');
+        content.innerHTML = '';
+        content.appendChild(p);
+        scrollToBottom();
+      })
+      .catch(() => {
+        aiMsg.querySelector('.content').innerHTML = `<p>Something went wrong reaching my AI fallback — try asking something else, or reach out directly.</p>`;
+        scrollToBottom();
+      });
+  }
+
+  input.value = '';
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  ask(input.value);
+});
+
+document.getElementById('cards').addEventListener('click', (e) => {
+  const btn = e.target.closest('.card');
+  if (!btn) return;
+  ask(btn.dataset.q);
+});
+
+const infoBtn = document.getElementById('info-btn');
+const infoTip = document.getElementById('info-tip');
+infoBtn.addEventListener('click', () => infoTip.classList.toggle('show'));
+document.addEventListener('click', (e) => {
+  if (!infoBtn.contains(e.target) && !infoTip.contains(e.target)) infoTip.classList.remove('show');
+});
+
+/* cursor spotlight */
+const glowField = document.getElementById('glow-field');
+let glowRAF = null;
+document.addEventListener('mousemove', (e) => {
+  glowField.classList.add('active');
+  if (glowRAF) return;
+  glowRAF = requestAnimationFrame(() => {
+    glowField.style.setProperty('--mx', e.clientX + 'px');
+    glowField.style.setProperty('--my', e.clientY + 'px');
+    glowRAF = null;
+  });
+});
+document.addEventListener('mouseleave', () => glowField.classList.remove('active'));
+document.addEventListener('touchmove', (e) => {
+  const t = e.touches[0];
+  if (!t) return;
+  glowField.classList.add('active');
+  glowField.style.setProperty('--mx', t.clientX + 'px');
+  glowField.style.setProperty('--my', t.clientY + 'px');
+}, { passive: true });
+</script>
+
+</body>
+</html>
