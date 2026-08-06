@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aly Maklad — AI/ML Engineer & Full-Stack Developer</title>
-<meta name="description" content="Ask-anything AI portfolio for Aly Maklad — AI/ML engineer and full-stack developer.">
+<title>Aly Maklad — AI/ML Engineer</title>
+<meta name="description" content="Interactive AI portfolio for Aly Maklad — AI/ML engineer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -31,17 +31,6 @@
     min-height:100vh;
   }
   a{color:inherit;}
-  .info-btn{
-    position:fixed; top:22px; right:22px; width:30px; height:30px; border-radius:50%;
-    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
-    font-size:0.8rem; color:var(--faint); cursor:pointer; background:var(--card); z-index:20;
-  }
-  .info-tip{
-    position:fixed; top:60px; right:22px; max-width:240px; background:var(--ink); color:#fff;
-    font-size:0.78rem; line-height:1.45; padding:12px 14px; border-radius:10px; z-index:21;
-    opacity:0; transform:translateY(-6px); pointer-events:none; transition:opacity .18s ease, transform .18s ease;
-  }
-  .info-tip.show{opacity:1; transform:translateY(0);}
 
   main.wrap{max-width:var(--maxw); margin:0 auto; padding:88px 20px 60px; display:flex; flex-direction:column; align-items:center;}
 
@@ -138,19 +127,17 @@
     opacity:0; transition:opacity .35s ease;
   }
   .glow-field.active{opacity:1;}
-  main.wrap, header, footer, .info-btn, .info-tip{position:relative; z-index:1;}
+  main.wrap, header, footer{position:relative; z-index:1;}
 </style>
 </head>
 <body>
 
 <div class="glow-field" id="glow-field"></div>
-<div class="info-btn" id="info-btn">i</div>
-<div class="info-tip" id="info-tip">This is an interactive AI-style portfolio. Ask a question or tap a card below — answers are drawn straight from my résumé.</div>
 
 <main class="wrap">
   <section class="hero">
     <p class="greet">Hey, I'm Aly <span class="wave">👋</span></p>
-    <h1>AI/ML Engineer &amp; Full-Stack Developer</h1>
+    <h1>AI/ML Engineer</h1>
 
     <div class="avatar">
       <img src="avatar-transparent.png" alt="Aly Maklad" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
@@ -196,43 +183,44 @@
   <section class="conversation hidden" id="conversation"></section>
 </main>
 
-<footer>Ask-anything portfolio · answers pulled from my résumé</footer>
+<footer></footer>
 
 <script>
 const answers = {
   me: {
     q: "Tell me about yourself.",
-    html: `<p>I'm <strong>Aly Maklad</strong>, a Computer Science graduate (dual degree from Ain Shams University &amp; the University of East London) specializing in Artificial Intelligence, based in Cairo, Egypt.</p>
-    <p>My experience includes an <strong>AI Research Internship at Manipal Institute of Technology</strong>, where I built a multimodal radiology report generation model (ResNet50 + MoCo + CLIP, with a Phi-3 model fine-tuned via 4-bit QLoRA). Alongside that I've been building <strong>LLM-powered multi-agent systems</strong> with LangGraph and LangChain, and I've done full-stack work with FastAPI, Flutter, and NestJS.</p>`
+    html: `<p>I'm <strong>Aly Maklad</strong>, a recent Computer Science graduate with a dual Bachelor's degree from Ain Shams University and the University of East London, specializing in Artificial Intelligence.</p>
+    <p>I work across the full ML lifecycle — model development, data preprocessing, experimentation, and evaluation — using Python, PyTorch, and TensorFlow. My experience includes LLM fine-tuning, multimodal deep learning, RAG, LangChain, LangGraph, and full-stack AI applications.</p>`
   },
   projects: {
     q: "What projects have you built?",
     html: `<p>A few highlights:</p>
     <ul>
-      <li><strong>CT Impression AI</strong> — a 3D CT impression generation project with local inference apps, demo assets, and evaluation outputs. <a href="https://github.com/alymaklad/ct-impression-ai" target="_blank" rel="noopener">GitHub</a></li>
-      <li><strong>Job Application Agent</strong> — an autonomous job-application system built as a multi-agent LangGraph orchestrator coordinating 8 specialized agents (search, ATS scoring, CV rewriting, apply-decision, email, reporting, news digest, skill-gap analysis) that runs unattended on a daily/weekly scheduler. <a href="https://github.com/alymaklad/Job_Application_Agent" target="_blank" rel="noopener">GitHub</a></li>
-      <li><strong>AI Course Material Chatbot (RAG)</strong> — FastAPI + Docker app answering questions grounded in uploaded course PDFs and slides. <a href="https://github.com/alymaklad/RAG-based-AI-Knowledge-Assistant-with-Memory" target="_blank" rel="noopener">GitHub</a></li>
-      <li><strong>Shifaa</strong> — a hospital monitoring platform; I built the real-time fall detection system (YOLO, MobileNetV3, MediaPipe, CTR-GCN) at 91.6% accuracy. <a href="https://github.com/alymaklad/Patient-fall-detection-system" target="_blank" rel="noopener">GitHub</a></li>
-      <li><strong>Drone tracking optimization</strong> — a pruned, TensorRT-optimized tracker hitting 100 FPS under strict parameter limits. <a href="https://github.com/alymaklad/ORTrack_AIC_Challenge" target="_blank" rel="noopener">GitHub</a></li>
+      <li><strong>CT Impression AI</strong> — multimodal radiology report generation on CT imaging data using MedicalNet-initialized ResNet50, MoCo, CLIP-style contrastive alignment, and Phi-3 fine-tuned with 4-bit QLoRA. <a href="https://github.com/alymaklad/ct-impression-ai" target="_blank" rel="noopener">GitHub</a></li>
+      <li><strong>Job Application Agent</strong> — an autonomous LangGraph system with 8 specialized agents for job search, ATS scoring, CV rewriting, apply decisions, email/reporting, news digests, and skill-gap analysis. <a href="https://github.com/alymaklad/Job_Application_Agent" target="_blank" rel="noopener">GitHub</a></li>
+      <li><strong>AI Course Material Chatbot (RAG)</strong> — a FastAPI and Docker app where students upload PDFs, slides, notes, or textbooks and get cited answers grounded in the uploaded material. <a href="https://github.com/alymaklad/RAG-based-AI-Knowledge-Assistant-with-Memory" target="_blank" rel="noopener">GitHub</a></li>
+      <li><strong>Shifaa</strong> — a privacy-first hospital monitoring platform; I built the real-time fall detection system using YOLO, MobileNetV3, MediaPipe, and CTR-GCN, reaching 91.59% accuracy and 94.87% F1. <a href="https://github.com/alymaklad/Patient-fall-detection-system" target="_blank" rel="noopener">GitHub</a></li>
+      <li><strong>Drone tracking optimization</strong> — a lightweight AIC Challenge drone tracker reaching 10ms latency (100 FPS), 85.6% Precision@20px, and 0.698 Mean IoU across 31,700+ frames. <a href="https://github.com/alymaklad/ORTrack_AIC_Challenge" target="_blank" rel="noopener">GitHub</a></li>
+      <li><strong>Food &amp; Fruit Recognition with Calorie Estimation</strong> — a few-shot food recognition system using Prototypical Networks and Swin Transformer backbones, reaching 76.31% ± 0.56% accuracy in 5-way 10-shot evaluation, with calorie estimation support.</li>
     </ul>`
   },
   skills: {
     q: "What are your technical skills?",
-    html: `<p><strong>AI/ML:</strong> PyTorch, TensorFlow, LangChain, LangGraph, RAG, QLoRA, LLM fine-tuning, computer vision, NLP, transformers.</p>
-    <p><strong>Engineering:</strong> Python, SQL, FastAPI, SQLAlchemy, Flutter, NestJS, Docker, REST APIs, Git.</p>
-    <p><strong>Foundations:</strong> linear algebra, probability &amp; statistics, classical ML algorithms.</p>`
+    html: `<p><strong>Programming:</strong> Python, C/C++, Java, SQL, and Dart.</p>
+    <p><strong>AI/ML:</strong> PyTorch, TensorFlow, NumPy, Pandas, OpenCV, CNNs, Transformers, Computer Vision, Deep Learning, NLP, LLMs, QLoRA, RAG, LangChain, LangGraph, multi-agent orchestration, and model evaluation.</p>
+    <p><strong>Frameworks &amp; tools:</strong> FastAPI, SQLAlchemy, Flutter, NestJS, MongoDB, PostgreSQL, SQLite, REST APIs, Docker, Git/GitHub, Jupyter, Google Colab, VS Code, IntelliJ, and SQL Server Management Studio.</p>`
   },
   contact: {
     q: "How can I contact you?",
-    html: `<p>Best way is email — <a href="mailto:alytarek.maklad@gmail.com"><strong>alytarek.maklad@gmail.com</strong></a>. I'm also on <a href="https://www.linkedin.com/in/alymaklad/" target="_blank" rel="noopener"><strong>LinkedIn</strong></a> and <a href="https://github.com/alymaklad" target="_blank" rel="noopener"><strong>GitHub</strong></a>. Always happy to talk AI/ML roles or agentic-systems projects.</p>`
+    html: `<p>You can reach me by email at <a href="mailto:alytarek.maklad@gmail.com"><strong>alytarek.maklad@gmail.com</strong></a>. I'm also on <a href="https://www.linkedin.com/in/alymaklad/" target="_blank" rel="noopener"><strong>LinkedIn</strong></a> and <a href="https://github.com/alymaklad" target="_blank" rel="noopener"><strong>GitHub</strong></a>.</p>`
   },
   location: {
     q: "Where are you located?",
-    html: `<p>I'm based in El Shorouk, Cairo, Egypt (GMT+2) — open to remote and hybrid AI/ML roles.</p>`
+    html: `<p>I'm based in El-Shorouk, Cairo, Egypt.</p>`
   },
   resume: {
     q: "Can I see your resume?",
-    html: `<p>Sure — here it is. Quick highlights: dual CS degree specializing in AI, AI research experience at Manipal Institute of Technology, and hands-on work fine-tuning LLMs and building multi-agent systems.</p>
+    html: `<p>Sure — here it is. Quick highlights: dual Bachelor's degree in Computer Science specializing in AI, hands-on ML lifecycle experience, LLM fine-tuning with Phi-3 and QLoRA, multimodal deep learning work, and LLM-powered agent projects.</p>
     <a class="dl" href="Aly_Maklad_CV.pdf">Download résumé (PDF)</a>`
   }
 };
@@ -342,13 +330,6 @@ document.getElementById('cards').addEventListener('click', (e) => {
   const btn = e.target.closest('.card');
   if (!btn) return;
   ask(btn.dataset.q);
-});
-
-const infoBtn = document.getElementById('info-btn');
-const infoTip = document.getElementById('info-tip');
-infoBtn.addEventListener('click', () => infoTip.classList.toggle('show'));
-document.addEventListener('click', (e) => {
-  if (!infoBtn.contains(e.target) && !infoTip.contains(e.target)) infoTip.classList.remove('show');
 });
 
 /* cursor spotlight */

@@ -8,7 +8,7 @@ I work across AI/ML, computer vision, LLMs, RAG systems, and full-stack developm
 
 Visit my portfolio here:
 
-[portfolio-q9h0vv4ne-alymaklads-projects.vercel.app](https://portfolio-q9h0vv4ne-alymaklads-projects.vercel.app/)
+[portfolio-git-main-alymaklads-projects.vercel.app](https://portfolio-git-main-alymaklads-projects.vercel.app/)
 
 ## What I Work On
 
@@ -30,4 +30,3 @@ Visit my portfolio here:
 - Email: [alytarek.maklad@gmail.com](mailto:alytarek.maklad@gmail.com)
 - LinkedIn: [linkedin.com/in/alymaklad](https://www.linkedin.com/in/alymaklad/)
 - GitHub: [github.com/alymaklad](https://github.com/alymaklad)
-
