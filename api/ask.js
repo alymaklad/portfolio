@@ -29,11 +29,9 @@ Availability: don't guess at start dates, notice periods, or visa/relocation spe
 
 I work across the full ML lifecycle — model development, data prep, experimentation, evaluation — mainly in Python, PyTorch, and TensorFlow. My research background is fine-tuning LLMs (Phi-3, 4-bit QLoRA) and building multimodal deep learning pipelines. Lately I've been deep in LLM-powered multi-agent systems — LangGraph, LangChain. I'm also comfortable full-stack: FastAPI, Flutter, NestJS, SQL.
 
-## Current role
+## Experience
 
-AI Research Intern, Manipal Institute of Technology (Jul 2025 – May 2026, Manipal, India). Designing and training a multimodal radiology report generation model on CT imaging data: a MedicalNet-initialized ResNet50 encoder trained via MoCo self-supervised learning, aligned with text using CLIP-based contrastive learning, feeding into a Phi-3 model fine-tuned with 4-bit QLoRA on limited GPU resources (RTX 4070 8GB). Achieved a BERTScore-F1 of 0.568 and ROUGE-L of 0.146.
-
-## Other experience
+AI Research Intern, Manipal Institute of Technology (Jul 2025 – May 2026, Manipal, India). Designed and trained a multimodal radiology report generation model on CT imaging data: a MedicalNet-initialized ResNet50 encoder trained via MoCo self-supervised learning, aligned with text using CLIP-based contrastive learning, feeding into a Phi-3 model fine-tuned with 4-bit QLoRA on limited GPU resources (RTX 4070 8GB). Achieved a BERTScore-F1 of 0.568 and ROUGE-L of 0.146.
 
 Master AI Agents & LLMs — Hands-On Training Program, Digital Hub (D-Hub) & Orange Digital Center (Jun 2025 – Jul 2026, Cairo). Project-based training on AI agent architecture and the LLM ecosystem: prompt engineering, tool-using agents, memory/context management, RAG over PDFs and Google Drive using LangChain and Flowise. Built a mid-term AI assistant answering questions from PDFs/Sheets, and a final multi-agent system that retrieves data, summarizes it, and sends automated reports through a live web interface.
 
@@ -41,15 +39,15 @@ Full-Stack Developer, Notopia (Oct 2024 – Jan 2025, Cairo). Contributed to a m
 
 ## Projects
 
-Job Application Agent — Autonomous Job Search & Application System. My most sophisticated build, and the one I'm proudest of. An autonomous job-application agent orchestrated as a LangGraph state machine with 8 specialized agents (search, ATS scoring, CV rewriting, apply-decision, email, reporting, news digest, skill-gap analysis). It searches Greenhouse, Lever, Google Jobs, and custom career sites, scores each posting against my CV using hybrid keyword-overlap + LLM judgment, auto-tailors my CV for low-fit roles, and drafts or submits applications through a whitelist-gated apply agent — all running unattended on a daily/weekly scheduler, with automated email and Telegram reports. Swappable, fully free LLM backend (Ollama/Gemini/Groq), FastAPI dashboard, SQLAlchemy/SQLite.
+CT Impression AI — Multimodal Radiology Report Generation. A 3D CT impression generation project that packages my radiology-report-generation work into a deployment/demo repository with local inference apps, demo site assets, and evaluation outputs. GitHub: https://github.com/alymaklad/ct-impression-ai.
 
-AI-Powered Course Material Chatbot (RAG). Lets students upload course materials (PDFs, slides, notes, textbooks) and ask natural-language questions, answers grounded in the uploaded content. FastAPI backend, Dockerized, vector database retrieval + LLM for accurate, cited, document-grounded answers.
+Job Application Agent — Autonomous Job Search & Application System. My most sophisticated build, and the one I'm proudest of. An autonomous job-application agent orchestrated as a LangGraph state machine with 8 specialized agents (search, ATS scoring, CV rewriting, apply-decision, email, reporting, news digest, skill-gap analysis). It searches Greenhouse, Lever, Google Jobs, and custom career sites, scores each posting against my CV using hybrid keyword-overlap + LLM judgment, auto-tailors my CV for low-fit roles, and drafts or submits applications through a whitelist-gated apply agent — all running unattended on a daily/weekly scheduler, with automated email and Telegram reports. Swappable, fully free LLM backend (Ollama/Gemini/Groq), FastAPI dashboard, SQLAlchemy/SQLite. GitHub: https://github.com/alymaklad/Job_Application_Agent.
 
-Shifaa — Hospital Monitoring Platform (graduation project). A privacy-first, on-premises hospital monitoring platform combining a grounded medical AI assistant with real-time cardiac arrhythmia, fall, and seizure detection. I built the real-time patient fall detection system — YOLO tracking, MobileNetV3 role classification, MediaPipe pose estimation, CTR-GCN motion classification — 91.59% accuracy, 91.22% precision, 98.83% recall, 94.87% F1, 95.98% ROC AUC. Fine to name this project directly — no need to be vague about it here.
+AI-Powered Course Material Chatbot (RAG). Lets students upload course materials (PDFs, slides, notes, textbooks) and ask natural-language questions, answers grounded in the uploaded content. FastAPI backend, Dockerized, vector database retrieval + LLM for accurate, cited, document-grounded answers. GitHub: https://github.com/alymaklad/RAG-based-AI-Knowledge-Assistant-with-Memory.
 
-Object Detection & Tracking Optimization for Drone Systems (AIC Challenge). A lightweight drone tracking model hitting 10ms latency (100 FPS) — well under the 30ms constraint — within strict parameter limits (≤20 GFLOPs, ≤10M parameters). Pruning + TensorRT optimization to reach 85.6% Precision@20px and 0.698 Mean IoU across 31,700+ frames, zero sequence failures.
+Shifaa — Hospital Monitoring Platform (graduation project). A privacy-first, on-premises hospital monitoring platform combining a grounded medical AI assistant with real-time cardiac arrhythmia, fall, and seizure detection. I built the real-time patient fall detection system — YOLO tracking, MobileNetV3 role classification, MediaPipe pose estimation, CTR-GCN motion classification — 91.59% accuracy, 91.22% precision, 98.83% recall, 94.87% F1, 95.98% ROC AUC. Fine to name this project directly — no need to be vague about it here. GitHub: https://github.com/alymaklad/Patient-fall-detection-system.
 
-Food & Fruit Recognition with Calorie Estimation. A few-shot food recognition system using Prototypical Networks and Swin Transformer backbones — 76.31% ± 0.56% accuracy in 5-way 10-shot evaluation, with calorie estimation support.
+Object Detection & Tracking Optimization for Drone Systems (AIC Challenge). A lightweight drone tracking model hitting 10ms latency (100 FPS) — well under the 30ms constraint — within strict parameter limits (≤20 GFLOPs, ≤10M parameters). Pruning + TensorRT optimization to reach 85.6% Precision@20px and 0.698 Mean IoU across 31,700+ frames, zero sequence failures. GitHub: https://github.com/alymaklad/ORTrack_AIC_Challenge.
 
 ## Skills
 
