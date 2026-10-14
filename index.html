@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aly Maklad — AI/ML Engineer</title>
-<meta name="description" content="Interactive AI portfolio for Aly Maklad — AI/ML engineer.">
+<title>Aly Maklad — AI Engineer</title>
+<meta name="description" content="Interactive AI portfolio for Aly Maklad — AI engineer building agentic LLM apps, RAG pipelines, and multimodal AI systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -137,7 +137,7 @@
 <main class="wrap">
   <section class="hero">
     <p class="greet">Hey, I'm Aly <span class="wave">👋</span></p>
-    <h1>AI/ML Engineer</h1>
+    <h1>AI Engineer</h1>
 
     <div class="avatar">
       <img src="avatar-transparent.png" alt="Aly Maklad" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
@@ -189,26 +189,27 @@
 const answers = {
   me: {
     q: "Tell me about yourself.",
-    html: `<p>I'm <strong>Aly Maklad</strong>, a recent Computer Science graduate with a dual Bachelor's degree from Ain Shams University and the University of East London, specializing in Artificial Intelligence.</p>
-    <p>I work across the full ML lifecycle — model development, data preprocessing, experimentation, and evaluation — using Python, PyTorch, and TensorFlow. My experience includes LLM fine-tuning, multimodal deep learning, RAG, LangChain, LangGraph, and full-stack AI applications.</p>`
+    html: `<p>I'm <strong>Aly Maklad</strong>, an AI Engineer building agentic LLM applications, RAG pipelines, and multimodal AI systems. I hold a dual Bachelor's degree in Computer Science from Ain Shams University and the University of East London.</p>
+    <p>I work with LangChain, LangGraph, FastAPI, and LLM fine-tuning (QLoRA), and I did research on vision-language models for medical imaging at Manipal Institute of Technology. I'm currently freelancing as an Odoo backend developer at BlackBelts.</p>`
   },
   projects: {
     q: "What projects have you built?",
-    html: `<p>A few highlights:</p>
+    html: `<p>A few recent ones:</p>
     <ul>
-      <li><strong>CT Impression AI</strong> — multimodal radiology report generation on CT imaging data using MedicalNet-initialized ResNet50, MoCo, CLIP-style contrastive alignment, and Phi-3 fine-tuned with 4-bit QLoRA. <a href="https://github.com/alymaklad/ct-impression-ai" target="_blank" rel="noopener">GitHub</a></li>
-      <li><strong>Job Application Agent</strong> — an autonomous LangGraph system with 8 specialized agents for job search, ATS scoring, CV rewriting, apply decisions, email/reporting, news digests, and skill-gap analysis. <a href="https://github.com/alymaklad/Job_Application_Agent" target="_blank" rel="noopener">GitHub</a></li>
-      <li><strong>AI Course Material Chatbot (RAG)</strong> — a FastAPI and Docker app where students upload PDFs, slides, notes, or textbooks and get cited answers grounded in the uploaded material. <a href="https://github.com/alymaklad/RAG-based-AI-Knowledge-Assistant-with-Memory" target="_blank" rel="noopener">GitHub</a></li>
-      <li><strong>Shifaa</strong> — a privacy-first hospital monitoring platform; I built the real-time fall detection system using YOLO, MobileNetV3, MediaPipe, and CTR-GCN, reaching 91.59% accuracy and 94.87% F1. <a href="https://github.com/alymaklad/Patient-fall-detection-system" target="_blank" rel="noopener">GitHub</a></li>
-      <li><strong>Drone tracking optimization</strong> — a lightweight AIC Challenge drone tracker reaching 10ms latency (100 FPS), 85.6% Precision@20px, and 0.698 Mean IoU across 31,700+ frames. <a href="https://github.com/alymaklad/ORTrack_AIC_Challenge" target="_blank" rel="noopener">GitHub</a></li>
-      <li><strong>Food &amp; Fruit Recognition with Calorie Estimation</strong> — a few-shot food recognition system using Prototypical Networks and Swin Transformer backbones, reaching 76.31% ± 0.56% accuracy in 5-way 10-shot evaluation, with calorie estimation support.</li>
+      <li><strong>PropFlow AI</strong> — autonomous real estate lead management built with LangGraph and n8n. It qualifies, scores, and registers leads in Odoo CRM, matches properties, and sends follow-ups, with human-in-the-loop escalation and signed, idempotent webhooks. 98–99% extraction accuracy, 500+ automated tests, CI/CD through GitHub Actions. <a href="https://github.com/alymaklad/PropFlow-AI" target="_blank" rel="noopener">GitHub</a></li>
+      <li><strong>Khotwa</strong> — an adaptive habit and productivity system with scoring, XP, streaks, and Google Tasks sync, plus an agentic goal planner using tool calling, Actor–Intervenor workflows, and Reflexion. <a href="https://github.com/alymaklad/Khatwa" target="_blank" rel="noopener">GitHub</a></li>
+      <li><strong>Multimodal AI Knowledge System</strong> — reasons over video and documents with VLMs, ASR, OCR, and LLMs, then answers questions through a RAG pipeline on BGE-M3 embeddings and Qdrant with metadata filtering.</li>
+      <li><strong>Sa'ei</strong> — an autonomous job search system that ranks openings, scores CV–job fit, finds skill gaps, tailors CVs, and manages applications. Multi-agent LangGraph pipeline on FastAPI, SQLAlchemy/SQLite, and APScheduler. <a href="https://github.com/alymaklad/saei" target="_blank" rel="noopener">GitHub</a></li>
+      <li><strong>CT radiology report generation</strong> (research) — a vision-language pipeline that writes reports from 3D chest CT scans: MoCo-pretrained 3D ResNet-50, CLIP alignment, and Phi-3 fine-tuned with 4-bit QLoRA. 0.568 BERTScore-F1 on CT-RATE. <a href="https://github.com/alymaklad/ct-impression-ai" target="_blank" rel="noopener">GitHub</a></li>
     </ul>`
   },
   skills: {
     q: "What are your technical skills?",
-    html: `<p><strong>Programming:</strong> Python, C/C++, Java, SQL, and Dart.</p>
-    <p><strong>AI/ML:</strong> PyTorch, TensorFlow, NumPy, Pandas, OpenCV, CNNs, Transformers, Computer Vision, Deep Learning, NLP, LLMs, QLoRA, RAG, LangChain, LangGraph, multi-agent orchestration, and model evaluation.</p>
-    <p><strong>Frameworks &amp; tools:</strong> FastAPI, SQLAlchemy, Flutter, NestJS, MongoDB, PostgreSQL, SQLite, REST APIs, Docker, Git/GitHub, Jupyter, Google Colab, VS Code, IntelliJ, and SQL Server Management Studio.</p>`
+    html: `<p><strong>AI / GenAI:</strong> LangChain, LangGraph, RAG, LLMs, VLMs, Multimodal AI, Fine-Tuning, QLoRA, Prompt Engineering, AI Agents, and MCP.</p>
+    <p><strong>ML / DL / CV:</strong> PyTorch, TensorFlow, Transformers, Computer Vision, OCR, ASR, NLP, and Deep Learning.</p>
+    <p><strong>Programming &amp; APIs:</strong> Python, SQL, C++, FastAPI, REST APIs, and Webhooks.</p>
+    <p><strong>Databases &amp; Backend:</strong> PostgreSQL, SQLite, Redis, Celery, and Odoo.</p>
+    <p><strong>DevOps &amp; Tools:</strong> Docker, GitHub Actions, CI/CD, Git, and GitHub.</p>`
   },
   contact: {
     q: "How can I contact you?",
@@ -216,11 +217,11 @@ const answers = {
   },
   location: {
     q: "Where are you located?",
-    html: `<p>I'm based in El-Shorouk, Cairo, Egypt.</p>`
+    html: `<p>I'm based in New Cairo, Egypt.</p>`
   },
   resume: {
     q: "Can I see your resume?",
-    html: `<p>Sure — here it is. Quick highlights: dual Bachelor's degree in Computer Science specializing in AI, hands-on ML lifecycle experience, LLM fine-tuning with Phi-3 and QLoRA, multimodal deep learning work, and LLM-powered agent projects.</p>
+    html: `<p>Sure — here it is. Quick highlights: agentic LLM apps and RAG pipelines, vision-language research on 3D CT scans at Manipal (Phi-3 + QLoRA), agent work at D-Hub &amp; Orange Digital Center, and current freelance Odoo backend work at BlackBelts.</p>
     <a class="dl" href="Aly_Maklad_CV.pdf">Download résumé (PDF)</a>`
   }
 };
